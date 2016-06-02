@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">HFF</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_learn">Learn</string>
+    <string name="title_activity_speller">Speller</string>
+    <string name="title_activity_test">Test</string>
+    <string name="title_activity_memory">Memory</string>
+</resources>
