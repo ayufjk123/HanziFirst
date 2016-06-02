@@ -366,8 +366,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     /**
      * onUpgrade
-     *
-     * @return void
      */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -547,7 +545,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      * Updating a hanzi
      *
      * @param hanzi
-     * @return void
      */
     public void updateHanzi(Hanzi hanzi) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -564,7 +561,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      * Deleting a hanzi
      *
      * @param hanzi_id
-     * @return void
      */
     public void deleteHanzi(long hanzi_id) {
         SQLiteDatabase db = this.getWritableDatabase();
