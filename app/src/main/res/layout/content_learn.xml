@@ -328,9 +328,10 @@
             android:layout_toLeftOf="@+id/btnHelp"
             android:background="@drawable/custom_layout_learn_blue"
             android:autoText="true"
-            android:textSize="20dp"
+            android:textSize="30dp"
             android:enabled="true"
             android:editable="true"
-            android:layout_above="@+id/space7" />
+            android:layout_above="@+id/space7"
+            android:gravity="center" />
     </RelativeLayout>
 </RelativeLayout>

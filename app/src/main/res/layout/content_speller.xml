@@ -331,6 +331,7 @@
             android:layout_above="@+id/space7"
             android:background="@drawable/custom_layout_speller_orange"
             android:autoText="true"
-            android:textSize="60dp" />
+            android:textSize="30dp"
+            android:gravity="center" />
     </RelativeLayout>
 </RelativeLayout>

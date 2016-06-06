@@ -64,6 +64,7 @@ public class Memory extends AppCompatActivity {
     long timeSwapBuff = 0L;
     long updatedTime = 0L;
     private boolean start = false, pause = false;
+    private ImageButton pauseButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,7 +89,10 @@ public class Memory extends AppCompatActivity {
         button = (Button) findViewById(R.id.button3);
         button.setText(0 + "");
 
-        ImageButton pauseButton = (ImageButton) findViewById(R.id.imageButton29);
+        pauseButton = (ImageButton) findViewById(R.id.imageButton29);
+        if(pauseButton.getBackground()!=null){
+            pauseButton.setBackgroundResource(R.drawable.play);
+        }
 
         pauseButton.setOnClickListener(new View.OnClickListener() {
 
@@ -97,10 +101,16 @@ public class Memory extends AppCompatActivity {
                 if (!pause) {
                     startTime = SystemClock.uptimeMillis();
                     customHandler.removeCallbacks(updateTimerThread);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                        pauseButton.setBackgroundResource(R.drawable.play);
+                    }
                     pause = true;
                 } else {
                     timeSwapBuff += timeInMilliseconds;
                     customHandler.postDelayed(updateTimerThread, 0);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                        pauseButton.setBackgroundResource(R.drawable.pause);
+                    }
                     pause = false;
                 }
 
@@ -108,20 +118,20 @@ public class Memory extends AppCompatActivity {
 
         });
 
-        if (!pause) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                pauseButton.setBackgroundResource(R.drawable.play);
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    pauseButton.setBackgroundTintMode(PorterDuff.Mode.DARKEN);
-                }
-            }
-            pause = true;
-        } else {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                pauseButton.setBackgroundResource(R.drawable.pause);
-            }
-            pause = false;
-        }
+//        if (!pause) {
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                pauseButton.setBackgroundResource(R.drawable.play);
+//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//                    pauseButton.setBackgroundTintMode(PorterDuff.Mode.DARKEN);
+//                }
+//            }
+//            pause = true;
+//        } else {
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                pauseButton.setBackgroundResource(R.drawable.pause);
+//            }
+//            pause = false;
+//        }
 
         newGame(4, 4);
 
